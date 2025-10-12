@@ -1,13 +1,11 @@
-/* ========== style.css ========== */
 
-/* الخلفية العامة */
+/* دول ثوابت متغيرهمش */
 .root {
-    -fx-background-color: linear-gradient(to bottom , #070F2B, #10172f);
+    -fx-background-color: linear-gradient(to bottom , #070F2B, #171f3a);
     /* -fx-background-color:  #070F2B; */
 }
 
-/* تصميم النص "Home" */
-.home-label {
+.test-label {
     -fx-font-family: "Segoe UI", "Tahoma", "Arial";
     -fx-font-size: 48px;
     -fx-text-fill: linear-gradient(#ffffff, #cfe8ff);
@@ -16,9 +14,71 @@
     -fx-alignment: center;
 }
 
-/* حجم أصغر للشاشات الصغيرة */
 @media screen and (max-width: 600px) {
     .home-label {
         -fx-font-size: 34px;
     }
 }
+
+/* ======================================================= */
+/* ====================== style.css ====================== */
+
+
+/* ==========  home  ========== */
+
+
+
+/* ==========  browse  ========== */
+
+
+
+/* ==========  news  ========== */
+
+
+
+
+/* ==========  about  ========== */
+
+
+
+
+
+/* ==========  Sign up  ========== */
+
+
+
+
+
+
+/* ==========  Log in  ========== */
+
+
+
+/* ==========  Confirm Order  ========== */
+
+
+
+
+/* ==========  Game Details  ========== */
+
+
+
+
+/* ==========  Profile  ========== */
+
+
+
+
+/* ==========  Shopping Cart  ========== */
+
+
+
+/* ==========  Log In  ========== */
+
+
+
+/* ==========  SignUp  ========== */
+
+
+
+

@@ -9,6 +9,6 @@
            fx:id="root">
 
     <children>
-        <Label text="About" styleClass="home-label"/>
+        <Label text="About" styleClass="test-label"/>
     </children>
 </StackPane>

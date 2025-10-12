@@ -9,6 +9,6 @@
            fx:id="root">
 
     <children>
-        <Label text="Browse" styleClass="home-label"/>
+        <Label text="Browse" styleClass="test-label"/>
     </children>
 </StackPane>

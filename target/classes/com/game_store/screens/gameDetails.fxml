@@ -5,10 +5,10 @@
 
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
-           fx:controller="com.game_store.screens.BrowseController"
+           fx:controller="com.game_store.screens.GameDetailsController"
            fx:id="root">
 
     <children>
-        <Label text="Browse" styleClass="test-label"/>
+        <Label text="Game Details" styleClass="test-label"/>
     </children>
 </StackPane>
