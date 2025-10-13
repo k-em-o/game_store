@@ -25,7 +25,42 @@
 
 
 /* ==========  home  ========== */
+.scroll-pane > *.viewport {
+    -fx-background-color: linear-gradient(to bottom , #070F2B, #171f3a);
 
+}
+.card {
+    -fx-background-color: #ffffff33;
+    -fx-background-radius: 15;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 5);
+}
+
+.game-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.game-desc {
+    -fx-text-fill: #cccccc;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+}
+
+.game-price {
+    -fx-text-fill: #00ff7f;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.buy-button {
+    -fx-background-color: linear-gradient(to right, #ff6a00, #ee0979);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
 
 
 /* ==========  browse  ========== */

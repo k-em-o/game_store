@@ -1,0 +1,16 @@
+com\game_store\screens\ShoppingCartController.class
+com\game_store\SecondaryController.class
+module-info.class
+com\game_store\screens\LogInController.class
+com\game_store\screens\ConfirmOrderController.class
+com\game_store\PrimaryController.class
+com\game_store\DatabaseConnection.class
+com\game_store\screens\BrowseController.class
+com\game_store\screens\AboutController.class
+com\game_store\screens\HomeController.class
+com\game_store\screens\GameDetailsController.class
+com\game_store\App.class
+com\game_store\screens\NewsController.class
+com\game_store\screens\SignUpController.class
+com\game_store\screens\ProfileController.class
+com\game_store\screens\TaskMenuController.class
