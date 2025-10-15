@@ -2,41 +2,23 @@ package com.game_store;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class DatabaseConnection {
 
-    private static final String URL = "https://uxdfzosnrodoqvbwjupt.supabase.co";
-    private static final String USER = "k-em-o";
+    private static final String URL = "jdbc:postgresql://db.uxdfzosnrodoqvbwjupt.supabase.co:5432/postgres?user=postgres&password=GameStore@pro";
+    private static final String USER = "postgres";
     private static final String PASSWORD = "GameStore@pro";
 
-    public static Connection connect() {
+        public static Connection connect() {
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("✅ Connection successful!");
+            System.out.println("✅ Connected to Supabase successfully!");
         } catch (SQLException e) {
-            System.out.println("❌ Connection failed!");
+            System.out.println("❌ Database connection failed!");
             e.printStackTrace();
         }
         return conn;
-    }
-
-    // 🔹 دالة main الصحيحة اللي Maven محتاجها
-    public static void main(String[] args) {
-        try (Connection conn = connect()) {
-            if (conn != null) {
-                // استعلام بسيط لاختبار الاتصال
-                Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT NOW();");
-                if (rs.next()) {
-                    System.out.println("🕒 Database time: " + rs.getString(1));
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 }

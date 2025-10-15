@@ -1,0 +1,7 @@
+{
+  "java.project.referencedLibraries": [
+    "libs/**/*.jar"
+  ],
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "java.compile.nullAnalysis.mode": "automatic"
+}

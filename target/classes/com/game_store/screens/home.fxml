@@ -10,5 +10,7 @@
 
     <children>
         <Label text="Home" styleClass="test-label"/>
+        <!-- <ListView fx:id="categoryList" prefWidth="200" prefHeight="400" /> -->
+
     </children>
 </StackPane>
