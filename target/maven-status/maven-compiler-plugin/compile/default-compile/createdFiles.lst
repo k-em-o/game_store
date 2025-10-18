@@ -9,8 +9,13 @@ com\game_store\screens\BrowseController.class
 com\game_store\screens\AboutController.class
 com\game_store\screens\HomeController.class
 com\game_store\screens\GameDetailsController.class
+com\game_store\models\Game.class
 com\game_store\App.class
+com\game_store\models\GameDAO.class
+com\game_store\models\User.class
 com\game_store\screens\NewsController.class
 com\game_store\screens\SignUpController.class
 com\game_store\screens\ProfileController.class
 com\game_store\screens\TaskMenuController.class
+com\game_store\services\SupabaseApiService.class
+com\game_store\models\UserDAO.class

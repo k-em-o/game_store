@@ -1,7 +1,6 @@
 {
-  "java.project.referencedLibraries": [
-    "libs/**/*.jar"
-  ],
+  "java.project.referencedLibraries": ["libs/**/*.jar"],
   "java.configuration.updateBuildConfiguration": "interactive",
-  "java.compile.nullAnalysis.mode": "automatic"
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.debug.settings.onBuildFailureProceed": true
 }
