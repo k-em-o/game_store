@@ -3,13 +3,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 
 <StackPane xmlns="http://javafx.com/javafx" 
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.game_store.screens.HomeController"
       fx:id="root">
-
-        <children>
-        <Label text="Home" styleClass="test-label"/>
-    </children>       
+  <children>
+    <Label text="Home" styleClass="test-label"/>
+    <Button text="Home"
+                  onAction="#goTask"
+                  style="-fx-font-size:18; -fx-background-color:#1f6feb; -fx-text-fill:white;"/>
+  </children>
 </StackPane>

@@ -1,88 +1,189 @@
-
 /* دول ثوابت متغيرهمش */
 .root {
-    -fx-background-color: linear-gradient(to bottom , #070F2B, #171f3a);
-    /* -fx-background-color:  #070F2B; */
+  -fx-background-color: linear-gradient(to bottom, #070f2b, #171f3a);
+  /* -fx-background-color:  #070F2B; */
 }
 
 .test-label {
-    -fx-font-family: "Segoe UI", "Tahoma", "Arial";
-    -fx-font-size: 48px;
-    -fx-text-fill: linear-gradient(#ffffff, #cfe8ff);
-    -fx-font-weight: bold;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.6) , 8, 0, 0, 4 );
-    -fx-alignment: center;
+  -fx-font-family: "Segoe UI", "Tahoma", "Arial";
+  -fx-font-size: 48px;
+  -fx-text-fill: linear-gradient(#ffffff, #cfe8ff);
+  -fx-font-weight: bold;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 8, 0, 0, 4);
+  -fx-alignment: center;
 }
 
 @media screen and (max-width: 600px) {
-    .home-label {
-        -fx-font-size: 34px;
-    }
+  .home-label {
+    -fx-font-size: 34px;
+  }
 }
 
 /* ======================================================= */
 /* ====================== style.css ====================== */
 
-
 /* ==========  home  ========== */
-.scroll-pane > *.viewport {
-    -fx-background-color: linear-gradient(to bottom , #070F2B, #171f3a);
-
-}
-
-
 
 /* ==========  browse  ========== */
 
-
-
 /* ==========  news  ========== */
-
-
-
 
 /* ==========  about  ========== */
 
-
-
-
-
 /* ==========  Sign up  ========== */
-
-
-
-
-
 
 /* ==========  Log in  ========== */
 
+/* Login Scene */
+.login-pane {
+  background-color: #ffffff;
+  -fx-background-radius: 0;
+  padding: 50px;
+  -fx-padding: 0 50 0 0;
+  border-radius: 0;
+  -fx-border-radius: 0;
+  border-width: 1px;
+  -fx-border-width: 1;
+  -fx-alignment: center;
+  -fx-padding: 0 -590 0 -590;
+}
 
+.login-title {
+  font-size: 42px;
+  -fx-font-size: 42px;
+  font-weight: bold;
+  -fx-font-weight: bold;
+  color: #fff;
+  -fx-text-fill: #fff;
+  padding: 0 0 20px 0;
+  -fx-padding: 0 0 20 0;
+  border-color: transparent;
+  -fx-border-color: transparent;
+  border-width: 0;
+  -fx-border-width: 0;
+}
+
+.login-field {
+  -fx-pref-width: 500px; /* ثابت */
+  -fx-pref-height: 65px; /* ثابت */
+  -fx-max-width: 500px; /* منع التكبير */
+  -fx-min-width: 500px; /* منع التصغير */
+  -fx-background-radius: 10;
+  -fx-padding: 5 15;
+  -fx-font-size: 16px;
+  -fx-text-fill: #ffffff;
+  -fx-background-color: #535c91;
+  -fx-effect: none;
+  -fx-alignment: center-left;
+  border-color: #535c91;
+  padding: 5px 15px;
+  font-size: 16px;
+  background-color: #535c91;
+}
+
+.login-button {
+  background-color: #1b1a55;
+  -fx-background-color: #1b1a55;
+  color: #fff;
+  -fx-text-fill: #fff;
+  font-weight: bold;
+  -fx-font-weight: bold;
+  border-radius: 0;
+  -fx-background-radius: 10;
+  -fx-pref-width: 500px;
+  -fx-pref-height: 55px;
+  -fx-effect: none;
+  font-size: 18px;
+  -fx-font-size: 18px;
+  cursor: pointer;
+  -fx-cursor: hand;
+  padding: 10px 20px;
+  -fx-padding: 10 20;
+  -fx-alignment: center;
+}
+.backButton {
+  -fx-font-size: 18px;
+  -fx-text-fill: #fff;
+  -fx-background-color: transparent;
+  -fx-cursor: hand;
+  -fx-padding: 0 0 50 50;
+}
+.login-button:hover {
+  background-color: #1b1a55;
+  -fx-background-color: #1b1a55;
+  cursor: pointer;
+  -fx-cursor: hand;
+  -fx-effect: dropshadow(gaussian, rgba(187, 134, 252, 0.4), 8, 0, 0, 0);
+  -fx-scale-x: 1;
+  -fx-scale-y: 1;
+  -fx-translate-y: 0;
+}
+.doLabel {
+  -fx-font-size: 18px;
+  -fx-text-fill: #fff;
+  /* -fx-alignment: right; */
+}
+.signUp-button {
+  background-color: #ffffff00;
+  -fx-background-color: #ffffff00;
+  color: #fff;
+  -fx-text-fill: #fff;
+  font-weight: bold;
+  -fx-font-weight: bold;
+  font-size: 18px;
+  -fx-font-size: 18px;
+  cursor: pointer;
+  -fx-cursor: hand;
+  padding: 0px 0px;
+  -fx-padding: 0 0;
+  -fx-alignment: center;
+}
+#imageContainer {
+  -fx-background-image: url("src/main/resources/com/game_store/assets/Login.png");
+  -fx-background-repeat: no-repeat;
+  -fx-background-size: cover; /* يخلي الصورة تغطي كل المساحة */
+  -fx-background-position: center center;
+}
+
+.remember-checkbox {
+  -fx-text-fill: #ffffff; /* لون النص أبيض */
+  -fx-font-size: 16px;
+  -fx-padding: 5 0 5 0;
+  /* -fx-padding: 0 355 0 0; */
+}
+
+/* لتغيير شكل الـ box نفسه (مربع التشيك) */
+.remember-checkbox .box {
+  -fx-border-color: #535c91;
+  -fx-border-radius: 5;
+  -fx-background-radius: 5;
+  -fx-padding: 4;
+}
+
+/* لما يبقى checked */
+.remember-checkbox:selected .box {
+  -fx-background-color: #535c91; /* لون تعبئة عند الاختيار */
+  -fx-border-color: #535c91;
+}
+
+/* لتعديل الـ mark (علامة الصح) */
+.remember-checkbox:selected .mark {
+  -fx-background-color: transparent;
+  -fx-shape: "M0 5 L5 10 L15 0"; /* مسار مخصص للعلامة */
+  -fx-border-color: #fff;
+  -fx-border-width: 2;
+  -fx-scale-x: 1.2;
+  -fx-scale-y: 1.2;
+}
 
 /* ==========  Confirm Order  ========== */
 
-
-
-
 /* ==========  Game Details  ========== */
-
-
-
 
 /* ==========  Profile  ========== */
 
-
-
-
 /* ==========  Shopping Cart  ========== */
-
-
 
 /* ==========  Log In  ========== */
 
-
-
 /* ==========  SignUp  ========== */
-
-
-
-

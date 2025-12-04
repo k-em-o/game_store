@@ -1,14 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
 
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="com.game_store.screens.SignUpController"
            fx:id="root">
-
-    <children>
-        <Label text="Sign Up" styleClass="test-label"/>
-    </children>
+  <children>
+    <HBox>
+      <!-- FORM -->
+      <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+        <VBox styleClass="login-pane">
+          <children>
+            <Label styleClass="login-title" text="Create Account">
+              <VBox.margin>
+                <Insets bottom="30"/>
+              </VBox.margin>
+            </Label>
+            <TextField fx:id="fullName" promptText="Full Name" styleClass="login-field">
+              <VBox.margin>
+                <Insets bottom="25"/>
+              </VBox.margin>
+            </TextField>
+            <TextField fx:id="username" promptText="User Name" styleClass="login-field">
+              <VBox.margin>
+                <Insets bottom="25"/>
+              </VBox.margin>
+            </TextField>
+            <TextField fx:id="emailField" promptText="Email Address" styleClass="login-field">
+              <VBox.margin>
+                <Insets bottom="25"/>
+              </VBox.margin>
+            </TextField>
+            <StackPane>
+              <PasswordField fx:id="passwordField" promptText="Password" styleClass="login-field">
+                <VBox.margin>
+                  <Insets bottom="25"/>
+                </VBox.margin>
+              </PasswordField>
+              <TextField fx:id="passwordTextField" promptText="Password" styleClass="login-field" visible="false" managed="false">
+                <VBox.margin>
+                  <Insets bottom="25"/>
+                </VBox.margin>
+              </TextField>
+            </StackPane>
+            <CheckBox fx:id="showPasswordCheckBox" text="Show Password" styleClass="remember-checkbox" style="-fx-padding: 0 350 0 0;">
+              <VBox.margin>
+                <Insets top="15"/>
+              </VBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="policyCheckBox" text="I agree with the Terms" styleClass="remember-checkbox" style="-fx-padding: 0 298 0 0;">
+              <VBox.margin>
+                <Insets top="15"/>
+              </VBox.margin>
+            </CheckBox>
+            <HBox alignment="CENTER_LEFT">
+              <VBox.margin>
+                <Insets bottom="15"/>
+              </VBox.margin>
+            </HBox>
+            <Button fx:id="loginButton" text="Submit" styleClass="login-button">  </Button>
+          </children>
+        </VBox>
+        <HBox alignment="CENTER" style="-fx-padding: 0 230 0 0;" spacing="5">
+          <Label text="Already have an account?" styleClass="doLabel"/>
+          <Button onAction="#goLogIn" styleClass="signUp-button" text="Log in"/>
+          <VBox.margin>
+            <Insets top="5"/>
+          </VBox.margin>
+        </HBox>
+        <Label fx:id="errorLabel" style="-fx-font-size: 13px; -fx-text-fill: #cf6679;">
+          <VBox.margin>
+            <Insets top="10"/>
+          </VBox.margin>
+        </Label>
+      </VBox>
+      <!-- IMAGE SIDE -->
+      <VBox fx:id="imageContainer" alignment="CENTER" HBox.hgrow="ALWAYS"/>
+    </HBox>
+  </children>
+  <Button text="❬ Back" onAction="#goHome" styleClass="backButton" StackPane.alignment="BOTTOM_LEFT"/>
 </StackPane>

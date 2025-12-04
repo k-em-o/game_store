@@ -1,21 +1,16 @@
-e:\git web\game_store\src\main\java\com\game_store\screens\NewsController.java
-e:\git web\game_store\src\main\java\com\game_store\services\SupabaseApiService.java
-e:\git web\game_store\src\main\java\com\game_store\PrimaryController.java
-e:\git web\game_store\src\main\java\module-info.java
-e:\git web\game_store\src\main\java\com\game_store\screens\BrowseController.java
-e:\git web\game_store\src\main\java\com\game_store\models\UserDAO.java
-e:\git web\game_store\src\main\java\com\game_store\screens\ProfileController.java
-e:\git web\game_store\src\main\java\com\game_store\models\GameDAO.java
-e:\git web\game_store\src\main\java\com\game_store\screens\LogInController.java
-e:\git web\game_store\src\main\java\com\game_store\screens\ConfirmOrderController.java
-e:\git web\game_store\src\main\java\com\game_store\screens\TaskMenuController.java
-e:\git web\game_store\src\main\java\com\game_store\screens\ShoppingCartController.java
-e:\git web\game_store\src\main\java\com\game_store\App.java
-e:\git web\game_store\src\main\java\com\game_store\models\User.java
-e:\git web\game_store\src\main\java\com\game_store\screens\SignUpController.java
-e:\git web\game_store\src\main\java\com\game_store\DatabaseConnection.java
-e:\git web\game_store\src\main\java\com\game_store\screens\GameDetailsController.java
-e:\git web\game_store\src\main\java\com\game_store\SecondaryController.java
-e:\git web\game_store\src\main\java\com\game_store\screens\HomeController.java
-e:\git web\game_store\src\main\java\com\game_store\models\Game.java
-e:\git web\game_store\src\main\java\com\game_store\screens\AboutController.java
+/home/kemo/Documents/code/JavaFX/game_store/src/main/java/com/game_store/screens/ConfirmOrderController.java
+/home/kemo/Documents/code/JavaFX/game_store/src/main/java/com/game_store/models/User.java
+/home/kemo/Documents/code/JavaFX/game_store/src/main/java/com/game_store/screens/GameDetailsController.java
+/home/kemo/Documents/code/JavaFX/game_store/src/main/java/com/game_store/screens/SignUpController.java
+/home/kemo/Documents/code/JavaFX/game_store/src/main/java/com/game_store/models/Game.java
+/home/kemo/Documents/code/JavaFX/game_store/src/main/java/com/game_store/screens/ProfileController.java
+/home/kemo/Documents/code/JavaFX/game_store/src/main/java/com/game_store/screens/AboutController.java
+/home/kemo/Documents/code/JavaFX/game_store/src/main/java/com/game_store/services/ApiClient.java
+/home/kemo/Documents/code/JavaFX/game_store/src/main/java/com/game_store/screens/ShoppingCartController.java
+/home/kemo/Documents/code/JavaFX/game_store/src/main/java/com/game_store/screens/HomeController.java
+/home/kemo/Documents/code/JavaFX/game_store/src/main/java/com/game_store/screens/NewsController.java
+/home/kemo/Documents/code/JavaFX/game_store/src/main/java/module-info.java
+/home/kemo/Documents/code/JavaFX/game_store/src/main/java/com/game_store/screens/BrowseController.java
+/home/kemo/Documents/code/JavaFX/game_store/src/main/java/com/game_store/App.java
+/home/kemo/Documents/code/JavaFX/game_store/src/main/java/com/game_store/screens/LogInController.java
+/home/kemo/Documents/code/JavaFX/game_store/src/main/java/com/game_store/screens/TaskMenuController.java
