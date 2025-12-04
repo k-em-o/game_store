@@ -9,6 +9,16 @@
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.game_store.screens.HomeController"
       fx:id="root">
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+
+        <children>
+        <Label text="Homehhh" styleClass="test-label"/>
+    </children>       
+</StackPane>
+=======
+=======
+>>>>>>> Stashed changes
   <children>
     <Label text="Home" styleClass="test-label"/>
     <Button text="Home"
@@ -16,3 +26,7 @@
                   style="-fx-font-size:18; -fx-background-color:#1f6feb; -fx-text-fill:white;"/>
   </children>
 </StackPane>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes

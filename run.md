@@ -1,0 +1,5 @@
+
+
+#run 
+
+mvn javafx:run
