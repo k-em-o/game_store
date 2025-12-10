@@ -22,6 +22,97 @@
 /* ======================================================= */
 /* ====================== style.css ====================== */
 
+/* ===== TableView ===== */
+.table-view {
+  -fx-background-color: transparent;
+  -fx-control-inner-background: transparent;
+  -fx-table-cell-border-color: transparent;
+  -fx-table-header-border-color: transparent;
+  -fx-font-size: 14px;
+}
+
+.table-view .column-header-background {
+  -fx-background-color: transparent;
+}
+.table-view .column {
+  -fx-background-color: transparent;
+  -fx-control-inner-background: transparent;
+}
+/* شفافية كاملة لمكان الـ scroll-bar */
+.table-view .scroll-bar:vertical,
+.table-view .scroll-bar:horizontal {
+    -fx-background-color: transparent;   /* خلفية السكروول */
+}
+
+.table-view .scroll-bar:vertical .track,
+.table-view .scroll-bar:horizontal .track {
+    -fx-background-color: transparent;   /* الممر اللي بيتحرك فيه thumb */
+}
+
+.table-view .scroll-bar:vertical .thumb,
+.table-view .scroll-bar:horizontal .thumb {
+    -fx-background-color: rgba(255, 255, 255, 0.3); /* الجزء المتحرك شفاف شويه */
+    -fx-background-radius: 5px;
+}
+
+/* ===== TableCell Buttons ===== */
+.table-cell > .button {
+  -fx-background-color: #cf6679;
+  -fx-text-fill: #fff;
+  -fx-font-weight: bold;
+  -fx-background-radius: 10;
+  -fx-cursor: hand;
+}
+
+.table-cell > .button:hover {
+  -fx-background-color: #ff3d6f;
+}
+.table-view .column-header-background {
+  -fx-background-color: transparent;
+}
+
+.table-view .column-header,
+.table-view .column-header .label, 
+.table-view .column-header .scroll-bar:vertical{
+  -fx-background-color: transparent;
+  -fx-text-fill: #ffffff; /* لون النص */
+  -fx-font-weight: bold;
+}
+
+.admin-field {
+  -fx-pref-width: 500px; /* ثابت */
+  -fx-pref-height: 65px; /* ثابت */
+  -fx-max-width: 500px; /* منع التكبير */
+  -fx-min-width: 500px; /* منع التصغير */
+  -fx-background-radius: 10;
+  -fx-padding: 5 15;
+  -fx-font-size: 16px;
+  -fx-text-fill: #ffffff;
+  -fx-background-color: #1B1A55;
+  -fx-effect: none;
+  -fx-alignment: center-left;
+  border-color: #1B1A55;
+  padding: 5px 15px;
+  font-size: 16px;
+  background-color: #1B1A55;
+}.admin-dr {
+  -fx-pref-width: 500px; /* ثابت */
+  -fx-pref-height: 65px; /* ثابت */
+  -fx-max-width: 500px; /* منع التكبير */
+  -fx-min-width: 500px; /* منع التصغير */
+  -fx-background-radius: 10;
+  -fx-padding: 5 15;
+  -fx-font-size: 16px;
+  -fx-text-fill: #ffffff;
+  -fx-background-color: #1B1A55;
+  -fx-effect: none;
+  -fx-alignment: center-left;
+  border-color: #1B1A55;
+  padding: 5px 15px;
+  font-size: 16px;
+  background-color: #1B1A55;
+}
+
 /* ==========  home  ========== */
 
 /* ==========  browse  ========== */

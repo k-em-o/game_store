@@ -42,4 +42,10 @@
   <Button text="ConfirmOrder"
               onAction="#goConfirmOrder"
               style="-fx-font-size:18; -fx-background-color:#1f6feb; -fx-text-fill:white;"/>
+  <Button text="AdminDashboard"
+              onAction="#goAdminDashboard"
+              style="-fx-font-size:18; -fx-background-color:#1f6feb; -fx-text-fill:white;"/>
+  <Button text="DeveloperDashboard"
+              onAction="#goDeveloperDashboard"
+              style="-fx-font-size:18; -fx-background-color:#1f6feb; -fx-text-fill:white;"/>
 </VBox>

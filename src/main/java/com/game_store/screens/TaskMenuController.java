@@ -41,4 +41,10 @@ public class TaskMenuController {
     public void goConfirmOrder(ActionEvent event) throws IOException {
         App.setRoot("confirmOrder");
     }
+    public void goAdminDashboard(ActionEvent event) throws IOException {
+        App.setRoot("adminDashboard");
+    }
+    public void goDeveloperDashboard(ActionEvent event) throws IOException {
+        App.setRoot("developerDashboard");
+    }
 }
