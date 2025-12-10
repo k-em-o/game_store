@@ -17,21 +17,21 @@
       <Label fx:id="adminNameLabel" text="Admin: " styleClass="login-title"/>
       <HBox spacing="10" alignment="CENTER">
         <TextField fx:id="searchField"
-                                                           promptText="Search by username..."
-                                                           styleClass="admin-field"/>
+                promptText="Search by username..."
+                styleClass="admin-field"/>
         <ComboBox fx:id="roleFilter"
-                                                          promptText="Filter by role"
-                                                          styleClass="admin-dr"/>
+                promptText="Filter by role"
+                styleClass="admin-dr"/>
       </HBox>
     </VBox>
   </top>
 
   <!-- ======= CENTER TABLE ======= -->
   <center>
-    <StackPane alignment="CENTER">
+    <StackPane alignment="CENTER" style="-fx-background-color: transparent; -fx-control-inner-background: transparent;">
       <TableView fx:id="usersTable" 
-                       style="-fx-background-color: transparent; -fx-control-inner-background: transparent;"
-                       prefHeight="400">
+            style="-fx-background-color: transparent; -fx-control-inner-background: transparent;"
+            prefHeight="400">
         <columns>
           <TableColumn fx:id="colFullName" text="Full Name"/>
           <TableColumn fx:id="colUsername" text="Username"/>

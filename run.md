@@ -16,3 +16,6 @@ kamal@gmail.com
 123456
 role : User
 
+# install lid
+
+mvn clean install

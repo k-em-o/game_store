@@ -28,6 +28,7 @@
   -fx-control-inner-background: transparent;
   -fx-table-cell-border-color: transparent;
   -fx-table-header-border-color: transparent;
+  background-color: transparent;
   -fx-font-size: 14px;
 }
 
@@ -41,23 +42,24 @@
 /* شفافية كاملة لمكان الـ scroll-bar */
 .table-view .scroll-bar:vertical,
 .table-view .scroll-bar:horizontal {
-    -fx-background-color: transparent;   /* خلفية السكروول */
+  -fx-background-color: transparent; /* خلفية السكروول */
 }
 
 .table-view .scroll-bar:vertical .track,
 .table-view .scroll-bar:horizontal .track {
-    -fx-background-color: transparent;   /* الممر اللي بيتحرك فيه thumb */
+  -fx-background-color: transparent; /* الممر اللي بيتحرك فيه thumb */
 }
 
 .table-view .scroll-bar:vertical .thumb,
 .table-view .scroll-bar:horizontal .thumb {
-    -fx-background-color: rgba(255, 255, 255, 0.3); /* الجزء المتحرك شفاف شويه */
-    -fx-background-radius: 5px;
+  -fx-background-color: rgba(255, 255, 255, 0.3); /* الجزء المتحرك شفاف شويه */
+  -fx-background-radius: 5px;
+
 }
 
 /* ===== TableCell Buttons ===== */
 .table-cell > .button {
-  -fx-background-color: #cf6679;
+  -fx-background-color: #ee1212da;
   -fx-text-fill: #fff;
   -fx-font-weight: bold;
   -fx-background-radius: 10;
@@ -65,15 +67,15 @@
 }
 
 .table-cell > .button:hover {
-  -fx-background-color: #ff3d6f;
+  -fx-background-color: #ff2d2dda;
 }
 .table-view .column-header-background {
   -fx-background-color: transparent;
 }
 
 .table-view .column-header,
-.table-view .column-header .label, 
-.table-view .column-header .scroll-bar:vertical{
+.table-view .column-header .label,
+.table-view .column-header .scroll-bar:vertical {
   -fx-background-color: transparent;
   -fx-text-fill: #ffffff; /* لون النص */
   -fx-font-weight: bold;
@@ -88,30 +90,99 @@
   -fx-padding: 5 15;
   -fx-font-size: 16px;
   -fx-text-fill: #ffffff;
-  -fx-background-color: #1B1A55;
+  -fx-background-color: #1b1a55;
   -fx-effect: none;
   -fx-alignment: center-left;
-  border-color: #1B1A55;
+  border-color: #1b1a55;
   padding: 5px 15px;
   font-size: 16px;
-  background-color: #1B1A55;
-}.admin-dr {
-  -fx-pref-width: 500px; /* ثابت */
+  background-color: #1b1a55;
+}
+
+.admin-dr {
+  -fx-pref-width: 250px; /* ثابت */
   -fx-pref-height: 65px; /* ثابت */
-  -fx-max-width: 500px; /* منع التكبير */
-  -fx-min-width: 500px; /* منع التصغير */
+  -fx-max-width: 250px; /* منع التكبير */
+  -fx-min-width: 250px; /* منع التصغير */
   -fx-background-radius: 10;
   -fx-padding: 5 15;
   -fx-font-size: 16px;
   -fx-text-fill: #ffffff;
-  -fx-background-color: #1B1A55;
+  -fx-background-color: #1b1a55;
   -fx-effect: none;
   -fx-alignment: center-left;
-  border-color: #1B1A55;
+  border-color: #1b1a55;
   padding: 5px 15px;
   font-size: 16px;
-  background-color: #1B1A55;
+  background-color: #1b1a55;
 }
+.combo-box-popup .list-view {
+  -fx-background-color: #1b1a55; /* نفس لون الـ ComboBox */
+}
+
+/* لون كل عنصر في القائمة */
+.combo-box-popup .list-cell {
+  -fx-background-color: #1b1a55;
+  -fx-text-fill: #ffffff; /* لون الكتابة أبيض */
+}
+.combo-box-popup  {
+  -fx-text-fill: #ffffff;
+}
+/* لون العنصر عند التحويم */
+.combo-box-popup .list-cell:hover {
+  -fx-background-color: #2a2a7b; /* لون أغمق شوية عند المرور */
+}
+
+
+
+
+.navbar {
+    -fx-padding: 12 25;
+}
+
+.search-bar {
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+    -fx-background-color: #1B1A55;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #999;
+    -fx-padding: 6 12;
+    -fx-font-size: 14px;
+}
+
+.nav-link {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+.nav-link:hover {
+    -fx-text-fill: #00d0ff;
+}
+
+.auth-btn {
+    -fx-background-color: #00aaff;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 6 15;
+    -fx-font-size: 14px;
+}
+.auth-btn:hover {
+    -fx-background-color: #0088cc;
+}
+
+.profile-btn, .logout-btn {
+    -fx-background-color: #444;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 6 15;
+}
+.logout-btn:hover {
+    -fx-background-color: #ff4444;
+}
+
+
+
 
 /* ==========  home  ========== */
 
