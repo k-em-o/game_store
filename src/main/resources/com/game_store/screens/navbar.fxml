@@ -11,40 +11,37 @@
       fx:controller="com.game_store.screens.NavbarController"
       spacing="25"
       styleClass="navbar">
-
-    <!-- LEFT SIDE (Logo + Search) -->
-    <HBox spacing="15" alignment="CENTER_LEFT">
-        <ImageView fx:id="logo"
-                   fitHeight="40" fitWidth="40"
-                   preserveRatio="true"
-                   pickOnBounds="true">
-            <image>
-                <Image url="@../assets/GameStoreLogo.png" />
-            </image>
-        </ImageView>
-
-        <TextField fx:id="searchField" promptText="🔍   Search store"
-                   styleClass="search-bar"
-                   prefWidth="220"/>
-    </HBox>
-
-    <!-- CENTER (Pages Navigation) -->
-    <HBox HBox.hgrow="ALWAYS"
-          alignment="CENTER"
-          spacing="35">
-        <Button text="Home"   styleClass="nav-link" onAction="#goHome"/>
-        <Button text="Browse" styleClass="nav-link" onAction="#goBrowse"/>
-        <Button text="About"  styleClass="nav-link" onAction="#goAbout"/>
-    </HBox>
-
-    <!-- RIGHT SIDE (Login / Sign Up OR Profile / Logout) -->
-    <HBox spacing="20" alignment="CENTER_RIGHT">
-        <Button fx:id="loginBtn"  text="Login"  styleClass="auth-btn" onAction="#login"/>
-        <Button fx:id="signupBtn" text="Sign Up" styleClass="auth-btn" onAction="#signup"/>
-
-        <!-- يظهر بس لو المستخدم داخل -->
-        <Button fx:id="profileBtn" text="Profile" styleClass="profile-btn" visible="false" onAction="#goProfile"/>
-        <Button fx:id="logoutBtn"  text="Logout"  styleClass="logout-btn" visible="false" onAction="#logout"/>
-    </HBox>
-
+  <!-- LEFT SIDE (Logo + Search) -->
+  <HBox spacing="15" alignment="CENTER_LEFT">
+    <ImageView fx:id="logo"
+                       fitHeight="40" fitWidth="40"
+                       preserveRatio="true"
+                       pickOnBounds="true">
+      <image>
+        <Image url="@../assets/GameStoreLogo.png"/>
+      </image>
+    </ImageView>
+    <TextField fx:id="searchField" promptText="🔍   Search store"
+                       styleClass="search-bar"
+                       prefWidth="220"/>
+  </HBox>
+  <!-- CENTER (Pages Navigation) -->
+  <HBox HBox.hgrow="ALWAYS"
+            alignment="CENTER"
+            spacing="35">
+    <Button text="Home" styleClass="nav-link" onAction="#goHome"/>
+    <Button text="Browse" styleClass="nav-link" onAction="#goBrowse"/>
+    <Button text="About" styleClass="nav-link" onAction="#goAbout"/>
+  </HBox>
+  <!-- RIGHT SIDE (Login / Sign Up OR Profile / Logout) -->
+  <HBox spacing="20" alignment="CENTER_RIGHT">
+    <children>
+      <Button fx:id="profileBtn" text="Profile" styleClass="profile-btn" visible="false" onAction="#goProfile"/>
+      <Button fx:id="logoutBtn" text="Logout" styleClass="logout-btn" visible="false" onAction="#logout"/>
+      
+      <Button fx:id="loginBtn" text="Login" styleClass="auth-btn" onAction="#login"/>
+      <Button fx:id="signupBtn" text="Sign Up" styleClass="auth-btn" onAction="#signup"/>
+    </children>
+    <!-- يظهر بس لو المستخدم داخل -->
+  </HBox>
 </HBox>

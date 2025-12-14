@@ -3,12 +3,14 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.control.Label?>
 
-<StackPane xmlns="http://javafx.com/javafx"
+<BorderPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="com.game_store.screens.AboutController"
            fx:id="root">
-
+  <top>
+    <fx:include source="navbar.fxml"/>
+  </top>
     <children>
         <Label text="About" styleClass="test-label"/>
     </children>
-</StackPane>
+</BorderPane>
