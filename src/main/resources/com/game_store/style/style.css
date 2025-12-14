@@ -185,13 +185,10 @@
 }
 
 .profile-btn, .logout-btn {
-    -fx-background-color: #444;
+    -fx-background-color: transparent;
     -fx-text-fill: white;
     -fx-background-radius: 8;
     -fx-padding: 6 15;
-}
-.logout-btn:hover {
-    -fx-background-color: #ff4444;
 }
 
 

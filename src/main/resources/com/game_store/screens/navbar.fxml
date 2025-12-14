@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
@@ -10,43 +9,79 @@
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.game_store.screens.NavbarController"
       spacing="25"
+      alignment="CENTER_LEFT"
       styleClass="navbar">
-  <!-- LEFT SIDE (Logo + Search) -->
-  <HBox spacing="15" alignment="CENTER_LEFT">
-    <ImageView fx:id="logo"
-                               fitHeight="40" fitWidth="40"
-                               preserveRatio="true"
-                               pickOnBounds="true">
-      <image>
-        <Image url="@../assets/GameStoreLogo.png"/>
-      </image>
-    </ImageView>
-    <TextField fx:id="searchField" promptText="🔍   Search store"
-                               styleClass="search-bar"
-                               prefWidth="220"/>
-  </HBox>
-  <!-- CENTER (Pages Navigation) -->
-  <HBox HBox.hgrow="ALWAYS"
-                alignment="CENTER"
-                spacing="35">
-    <Button text="Home" styleClass="nav-link" onAction="#goHome"/>
-    <Button text="Browse" styleClass="nav-link" onAction="#goBrowse"/>
-    <Button text="About" styleClass="nav-link" onAction="#goAbout"/>
-  </HBox>
-  <!-- RIGHT SIDE (Login / Sign Up OR Profile / Logout) -->
-  <HBox alignment="CENTER_RIGHT">
-    <children>
-      <StackPane>
-        <HBox spacing="20">
-          <Button fx:id="profileBtn" text="Profile" styleClass="profile-btn" visible="false" onAction="#goProfile"/>
-          <Button fx:id="logoutBtn" text="Logout" styleClass="logout-btn" visible="false" onAction="#logout"/>
-        </HBox>
-        <HBox spacing="20">
-          <Button fx:id="loginBtn" text="Login" styleClass="auth-btnL" onAction="#login"/>
-          <Button fx:id="signupBtn" text="Sign Up" styleClass="auth-btnS" onAction="#signup"/>
-        </HBox>
-      </StackPane>
-    </children>
-    <!-- يظهر بس لو المستخدم داخل -->
-  </HBox>
+
+    <!-- LEFT SIDE (Logo + Search) -->
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <ImageView fx:id="logo"
+                   fitHeight="40"
+                   fitWidth="40"
+                   preserveRatio="true">
+            <image>
+                <Image url="@../assets/GameStoreLogo.png"/>
+            </image>
+        </ImageView>
+
+        <TextField fx:id="searchField"
+                   promptText="🔍   Search store"
+                   styleClass="search-bar"
+                   prefWidth="220"/>
+    </HBox>
+
+    <!-- CENTER (Pages Navigation) -->
+    <HBox HBox.hgrow="ALWAYS"
+          alignment="CENTER"
+          spacing="35">
+        <Button text="Home" styleClass="nav-link" onAction="#goHome"/>
+        <Button text="Browse" styleClass="nav-link" onAction="#goBrowse"/>
+        <Button text="About" styleClass="nav-link" onAction="#goAbout"/>
+    </HBox>
+
+    <!-- RIGHT SIDE -->
+    <HBox alignment="CENTER_RIGHT">
+        <StackPane>
+
+            <!-- Logged In -->
+            <HBox fx:id="userBox" spacing="10" visible="false">
+                <Button fx:id="profileBtn"
+                        styleClass="profile-btn"
+                        onAction="#goProfile">
+                    <graphic>
+                        <ImageView fitWidth="30" fitHeight="30" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/userProfileCircle.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="cartBtn"
+                        styleClass="logout-btn"
+                        onAction="#goCart">
+                    <graphic>
+                        <ImageView fitWidth="30" fitHeight="30" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/cart.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </HBox>
+
+            <!-- Guest -->
+            <HBox fx:id="authBox" spacing="20">
+                <Button fx:id="loginBtn"
+                        text="Login"
+                        styleClass="auth-btnL"
+                        onAction="#login"/>
+                <Button fx:id="signupBtn"
+                        text="Sign Up"
+                        styleClass="auth-btnS"
+                        onAction="#signup"/>
+            </HBox>
+
+        </StackPane>
+    </HBox>
+
 </HBox>
