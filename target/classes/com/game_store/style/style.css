@@ -200,31 +200,7 @@
 /* ==========  home  ========== */
 
 /* ==========  browse  ========== */
-.filter-box {
-    -fx-background-color: transparent;
-    -fx-text-fill: white;
-    -fx-background-radius: 8;
-    -fx-pref-width: 160;
-}
 
-.search-field {
-    -fx-background-color: transparent;
-    -fx-text-fill: white;
-    -fx-background-radius: 8;
-    -fx-pref-width: 280;
-}
-
-.pagination-btn {
-    -fx-background-color: transparent;
-    -fx-text-fill: #aaa;
-    -fx-font-size: 14;
-}
-
-.pagination-btn-active {
-    -fx-background-color: #4CAF50;
-    -fx-text-fill: white;
-    -fx-background-radius: 6;
-}
 
 /* ==========  news  ========== */
 
