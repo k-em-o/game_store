@@ -2,7 +2,6 @@ package com.game_store.screens;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
-
 public class AboutController {
       
         @FXML
