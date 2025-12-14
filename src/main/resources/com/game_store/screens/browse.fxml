@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.control.Label?>
 
-<StackPane xmlns="http://javafx.com/javafx"
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="com.game_store.screens.BrowseController"
            fx:id="root">
+  <top>
+    <fx:include source="navbar.fxml"/>
+  </top>
 
-    <children>
+    <center>
         <Label text="Browse" styleClass="test-label"/>
-    </children>
-</StackPane>
+    </center>
+</BorderPane>

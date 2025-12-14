@@ -13,7 +13,7 @@
     <fx:include source="navbar.fxml"/>
   </top>
 
-  <children>
+  <center>
     <Label text="About" styleClass="test-label"/>
-  </children>
+  </center>
 </BorderPane>
