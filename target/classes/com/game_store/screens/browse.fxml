@@ -1,19 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-           xmlns:fx="http://javafx.com/fxml"
-           fx:controller="com.game_store.screens.BrowseController"
-           fx:id="root">
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.game_store.screens.BrowseController"
+            styleClass="root" >
+  <!-- ================= Filters Bar ================= -->
   <top>
-    <fx:include source="navbar.fxml"/>
+    <VBox>
+      <fx:include source="navbar.fxml"/>
+      <HBox spacing="15">
+        <padding>
+          <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+        <ComboBox fx:id="categoryFilter"
+                          promptText="Category"
+                          styleClass="filter-box"/>
+        <ComboBox fx:id="priceFilter"
+                                                              promptText="Price"
+                                                              styleClass="filter-box"/>
+        <ComboBox fx:id="platformFilter"
+                                                              promptText="Platform"
+                                                              styleClass="filter-box"/>
+        <TextField fx:id="searchField"
+                                                               promptText="Search games..."
+                                                               styleClass="search-field"/>
+      </HBox>
+    </VBox>
   </top>
 
+  <!-- ================= Content ================= -->
   <center>
-    <Label text="Browse" styleClass="test-label"/>
+    <ScrollPane fitToWidth="true"
+                                            hbarPolicy="NEVER">
+      <FlowPane fx:id="gameContainer"
+                                                          hgap="25"
+                                                          vgap="30"
+                                                          prefWrapLength="1200">
+        <padding>
+          <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+      </FlowPane>
+    </ScrollPane>
   </center>
+
+  <!-- ================= Pagination ================= -->
+  <bottom>
+    <HBox fx:id="paginationBox"
+                                      spacing="10"
+                                      alignment="CENTER"
+                                      >
+      <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+      </padding>
+    </HBox>
+  </bottom>
 </BorderPane>

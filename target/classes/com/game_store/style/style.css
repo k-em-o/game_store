@@ -355,6 +355,82 @@
 
 /* ==========  Profile  ========== */
 
+
+.profile-menu {
+    -fx-background-color: #1a1d55;
+    -fx-padding: 25;
+    -fx-background-radius: 20;
+    -fx-pref-width: 260;
+}
+
+.menu-title {
+    -fx-text-fill: #cfd2ff;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+}
+
+.menu-sub {
+    -fx-text-fill: #9aa0ff;
+    -fx-font-size: 11;
+}
+
+.menu-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 14;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.menu-btn:hover {
+    -fx-background-color: #2b2f7a;
+}
+
+.menu-hint {
+    -fx-text-fill: #8b8fc7;
+    -fx-font-size: 10;
+}
+
+.profile-card {
+    -fx-background-color: #1d1f5e;
+    -fx-padding: 30;
+    -fx-background-radius: 25;
+}
+
+.profile-title {
+    -fx-text-fill: white;
+    -fx-font-size: 22;
+    -fx-font-weight: bold;
+}
+
+.profile-subtitle {
+    -fx-text-fill: #b0b3ff;
+}
+
+.field-label {
+    -fx-text-fill: white;
+    -fx-font-size: 13;
+}
+
+.text-field {
+    -fx-background-radius: 10;
+    -fx-background-color: #3a3f8f;
+    -fx-text-fill: white;
+}
+
+.verified {
+    -fx-text-fill: #2cff9a;
+    -fx-font-size: 11;
+}
+
+.save-btn {
+    -fx-background-color: white;
+    -fx-text-fill: #1d1f5e;
+    -fx-background-radius: 20;
+    -fx-padding: 8 25;
+}
+
+
+
 /* ==========  Shopping Cart  ========== */
 
 /* ==========  Log In  ========== */

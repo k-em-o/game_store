@@ -11,9 +11,11 @@ module com.game_store {
     opens com.game_store.screens to javafx.fxml;
     opens com.game_store.models to javafx.fxml, com.fasterxml.jackson.databind; // 🔹 صححت
     opens com.game_store.services to javafx.fxml; 
+    opens com.game_store.components to javafx.fxml;
 
     exports com.game_store;
     exports com.game_store.screens;
     exports com.game_store.models;
     exports com.game_store.services; 
+    exports com.game_store.components; 
 }

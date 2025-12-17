@@ -1,9 +1,7 @@
-// LoggedInUser.java
 package com.game_store.services;
 
 import com.game_store.models.User;
 
-// كلاس لتخزين بيانات المستخدم بعد تسجيل الدخول
 public class LoggedInUser {
 
     private static User currentUser;
@@ -16,7 +14,11 @@ public class LoggedInUser {
         return currentUser;
     }
 
-    public static void clear() {
+    public static boolean isLoggedIn() {
+        return currentUser != null;
+    }
+
+    public static void logout() {
         currentUser = null;
     }
 }
