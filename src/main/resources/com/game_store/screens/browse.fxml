@@ -33,17 +33,25 @@
 
   <!-- ================= Content ================= -->
   <center>
-    <ScrollPane fitToWidth="true"
-                                            hbarPolicy="NEVER">
-      <FlowPane fx:id="gameContainer"
-                                                          hgap="25"
-                                                          vgap="30"
-                                                          prefWrapLength="1200">
-        <padding>
-          <Insets top="20" right="20" bottom="20" left="20"/>
-        </padding>
-      </FlowPane>
-    </ScrollPane>
+<ScrollPane fitToWidth="true"
+            hbarPolicy="NEVER"
+            vbarPolicy="AS_NEEDED"
+            styleClass="transparent-scroll">
+
+    <content>
+        <FlowPane fx:id="gameContainer"
+                  hgap="25"
+                  vgap="30"
+                  prefWrapLength="1200"
+                  styleClass="transparent-flow">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+        </FlowPane>
+    </content>
+
+</ScrollPane>
+
   </center>
 
   <!-- ================= Pagination ================= -->

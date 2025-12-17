@@ -22,6 +22,19 @@
 /* ======================================================= */
 /* ====================== style.css ====================== */
 
+
+.transparent-scroll {
+    -fx-background-color: transparent;
+}
+
+.transparent-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.transparent-flow {
+    -fx-background-color: transparent;
+}
+
 /* ===== TableView ===== */
 .table-view {
   -fx-background-color: transparent;

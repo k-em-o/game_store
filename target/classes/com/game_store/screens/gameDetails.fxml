@@ -3,12 +3,14 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.control.Label?>
 
-<StackPane xmlns="http://javafx.com/javafx"
-           xmlns:fx="http://javafx.com/fxml"
-           fx:controller="com.game_store.screens.GameDetailsController"
-           fx:id="root">
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.game_store.screens.GameDetailsController"
+            prefWidth="800"
+            prefHeight="600">
 
-    <children>
-        <Label text="Game Details" styleClass="test-label"/>
-    </children>
-</StackPane>
+    <Label fx:id="gameTitle"
+           layoutX="50"
+           layoutY="50"
+           style="-fx-font-size:24px;"/>
+</AnchorPane>
+
