@@ -4,58 +4,85 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
+<BorderPane fx:id="root"
+            xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.game_store.screens.ProfileController"
             styleClass="profile-root">
-  <!-- NAVBAR -->
-  <top>
-    <fx:include source="navbar.fxml"/>
-  </top>
 
-  <!-- MAIN CONTENT -->
-  <center>
-    <HBox spacing="30">
-      <padding>
-        <Insets top="40" right="40" bottom="40" left="40"/>
-      </padding>
-      <!-- LEFT MENU -->
-      <VBox spacing="15" styleClass="profile-menu">
-        <Label text="Personal Information" styleClass="menu-title"/>
-        <Label text="Modify Your Personal Information" styleClass="menu-sub"/>
-        <Separator/>
-        <Button text="My Orders" styleClass="menu-btn"/>
-        <Label text="View Your Previous Orders" styleClass="menu-hint"/>
-        <Button text="Wishlist" styleClass="menu-btn"/>
-        <Label text="View Games You Added in Wishlist" styleClass="menu-hint"/>
-        <Button text="Payment Methods" styleClass="menu-btn"/>
-        <Label text="Adjust Your Payment Method" styleClass="menu-hint"/>
-      </VBox>
-      <!-- RIGHT CARD -->
-      <VBox spacing="20" styleClass="profile-card" prefWidth="600">
-        <VBox spacing="5">
-          <Label fx:id="helloLabel" styleClass="profile-title"/>
-          <Label text="What do you want to do?" styleClass="profile-subtitle"/>
-        </VBox>
-        <Separator/>
-        <VBox spacing="8">
-          <Label text="Your Name" styleClass="field-label"/>
-          <TextField fx:id="nameField" editable="false"/>
-        </VBox>
-        <HBox spacing="20">
-          <VBox spacing="8" HBox.hgrow="ALWAYS">
-            <Label text="Email Address" styleClass="field-label"/>
-            <TextField fx:id="emailField" editable="false"/>
-            <Label text="Email Verified" styleClass="verified"/>
-          </VBox>
-          <VBox spacing="8" HBox.hgrow="ALWAYS">
-            <Label text="Mobile" styleClass="field-label"/>
-            <TextField fx:id="mobileField" editable="false"/>
-            <Label text="Number Verified" styleClass="verified"/>
-          </VBox>
+    <top>
+        <fx:include source="navbar.fxml"/>
+    </top>
+
+    <center>
+        <HBox spacing="30">
+            <padding>
+                <Insets top="40" right="40" bottom="40" left="40"/>
+            </padding>
+
+            <!-- LEFT MENU -->
+            <VBox spacing="15" styleClass="profile-menu" VBox.vgrow="ALWAYS">
+              <Label text="Personal Information" styleClass="menu-title"/>
+              <Label text="Modify Your Personal Information" styleClass="menu-sub"/>
+              <Separator/>
+              
+              <Button text="My Orders" styleClass="menu-btn" onAction="#goOrders">
+            <padding>
+                <Insets top="0" right="0" bottom="0" left="0"/>
+            </padding>
+            </Button>
+            <Label text="View Your Previous Orders" styleClass="menu-hint"/>
+            <Button text="Wishlist" styleClass="menu-btn" onAction="#goWishlist">
+            <padding>
+                <Insets top="0" right="0" bottom="0" left="0"/>
+            </padding>
+            </Button>
+            <Label text="View Games You Added in Wishlist" styleClass="menu-hint"/>
+            <Button text="Payment Methods" styleClass="menu-btn" onAction="#goPayments">
+            <padding>
+                <Insets top="0" right="0" bottom="0" left="0"/>
+            </padding>
+            </Button>
+              <Label text="Adjust Your Payment Method" styleClass="menu-hint"/>
+            </VBox>
+
+            <!-- RIGHT CARD -->
+            <VBox spacing="20" styleClass="profile-card" HBox.hgrow="ALWAYS">
+
+                <VBox spacing="5">
+                    <Label fx:id="helloLabel" styleClass="profile-title"/>
+                    <Label text="What do you want to do?" styleClass="profile-subtitle"/>
+                </VBox>
+
+                <Separator/>
+
+                <VBox spacing="8">
+                    <Label text="Your Name" styleClass="field-pro-label"/>
+                    <TextField fx:id="nameField"/>
+                </VBox>
+
+                <HBox spacing="20">
+                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                        <Label text="Email Address" styleClass="field-pro-label"/>
+                        <TextField fx:id="emailField"/>
+                    </VBox>
+
+                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                        <Label text="Mobile" styleClass="field-pro-label"/>
+                        <TextField fx:id="mobileField" editable="false"/>
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="10">
+                    <HBox alignment="CENTER_LEFT" >
+                        <Button text="Save" fx:id="saveBtn" styleClass="save-btn" onAction="#saveProfile"/>
+                    </HBox>
+                    <HBox alignment="CENTER" >
+                        <Button text="Logout" fx:id="logoutBtn" styleClass="logout-pro-btn" onAction="#logout"/>
+                    </HBox>
+                </HBox>
+
+            </VBox>
         </HBox>
-        <Button text="Save" styleClass="save-btn"/>
-      </VBox>
-    </HBox>
-  </center>
+    </center>
 </BorderPane>
