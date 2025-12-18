@@ -84,7 +84,7 @@ public class SignUpController {
 
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
 
-        User newUser = new User(null, email, user, name, "Unknown", hashedPassword, "user");
+        User newUser = new User(null, email, user, name, "", "Unknown", hashedPassword, "user");
         ObjectMapper mapper = new ObjectMapper();
         String body = mapper.writeValueAsString(newUser);
 

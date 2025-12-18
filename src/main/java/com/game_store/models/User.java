@@ -10,6 +10,7 @@ public class User {
     private String email;
     private String username;
     private String full_name;
+    private String mobile;
     private String country;
     private String password_hash;
     private String user_role;
@@ -20,11 +21,12 @@ public class User {
 
     public User() {}
 
-    public User(String id, String email, String username, String full_name, String country, String password_hash, String user_role) {
+    public User(String id, String email, String username, String full_name,String mobile ,String country, String password_hash, String user_role) {
         this.id = id;
         this.email = email;
         this.username = username;
         this.full_name = full_name;
+        this.mobile = mobile;
         this.country = country;
         this.password_hash = password_hash;
         this.user_role = user_role;
@@ -42,6 +44,9 @@ public class User {
 
     public String getFull_name() { return full_name; }
     public void setFull_name(String full_name) { this.full_name = full_name; }
+    
+    public String getMobile() { return mobile; }
+    public void setMobile(String mobile) { this.mobile = mobile; }
 
     public String getCountry() { return country; }
     public void setCountry(String country) { this.country = country; }

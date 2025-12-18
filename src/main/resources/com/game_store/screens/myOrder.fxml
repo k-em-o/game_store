@@ -6,7 +6,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.game_store.screens.PaymentsController"
+      fx:controller="com.game_store.screens.MyOrderController"
       styleClass="root">
   <top>
     <fx:include source="navbar.fxml"/>
@@ -25,21 +25,21 @@
           </padding>
         </Button>
         <Label text="Modify Your Personal Information" styleClass="menu-hint"/>
-        <Button text="My Orders" styleClass="menu-btn" onAction="#goOrders">
-          <padding>
-            <Insets top="0" right="0" bottom="0" left="0"/>
-          </padding>
-        </Button>
-        <Label text="View Your Previous Orders" styleClass="menu-hint"/>
+        <Label text="My Orders" styleClass="menu-title"/>
+        <Label text="View Your Previous Orders" styleClass="menu-sub"/>
+        <Separator/>
         <Button text="Wishlist" styleClass="menu-btn" onAction="#goWishlist">
           <padding>
             <Insets top="0" right="0" bottom="0" left="0"/>
           </padding>
         </Button>
         <Label text="View Games You Added in Wishlist" styleClass="menu-hint"/>
-        <Label text="Payment Methods" styleClass="menu-title"/>
-        <Label text="Adjust Your Payment Method" styleClass="menu-sub"/>
-        <Separator/>
+        <Button text="Payment Methods" styleClass="menu-btn" onAction="#goPayments">
+          <padding>
+            <Insets top="0" right="0" bottom="0" left="0"/>
+          </padding>
+        </Button>
+        <Label text="Adjust Your Payment Method" styleClass="menu-hint"/>
       </VBox>
       <!-- RIGHT CARD -->
       <VBox spacing="20" styleClass="profile-card" HBox.hgrow="ALWAYS">

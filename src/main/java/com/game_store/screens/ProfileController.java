@@ -16,14 +16,20 @@ import javafx.scene.layout.StackPane;
 
 public class ProfileController {
 
-    @FXML private Label helloLabel;
-    @FXML private TextField nameField;
-    @FXML private TextField emailField;
-    @FXML private TextField mobileField;
-    @FXML private Button saveBtn;
-    @FXML private Button logoutBtn;
-    @FXML private StackPane contentArea;
-
+    @FXML
+    private Label helloLabel;
+    @FXML
+    private TextField nameField;
+    @FXML
+    private TextField emailField;
+    @FXML
+    private TextField mobileField;
+    @FXML
+    private Button saveBtn;
+    @FXML
+    private Button logoutBtn;
+    @FXML
+    private StackPane contentArea;
 
     @FXML
     public void initialize() {
@@ -38,7 +44,7 @@ public class ProfileController {
             helloLabel.setText("Hello, " + user.getUsername());
             nameField.setText(user.getUsername());
             emailField.setText(user.getEmail());
-            mobileField.setText("+20XXXXXXXXX");
+            mobileField.setText(user.getMobile());
             logoutBtn.setDisable(false);
         } else {
             helloLabel.setText("Hello, Gest");
@@ -50,7 +56,7 @@ public class ProfileController {
 
     // ===== Navigation =====
     public void goOrders(ActionEvent event) throws IOException {
-        App.setRoot("orders");
+        App.setRoot("myOrder");
     }
 
     public void goWishlist(ActionEvent event) throws IOException {
@@ -69,19 +75,23 @@ public class ProfileController {
     // ===== Save Profile =====
     public void saveProfile(ActionEvent event) {
         User user = LoggedInUser.getUser();
-        if (user == null) return;
+        if (user == null)
+            return;
 
         user.setUsername(nameField.getText());
         user.setEmail(emailField.getText());
+        user.setMobile(mobileField.getText());
 
         // بدل Text Blocks لو فيه مشاكل
         String json = "{ \"username\": \"" + user.getUsername() +
-                      "\", \"email\": \"" + user.getEmail() + "\" }";
+                "\", \"email\": \"" + user.getEmail() + "\" , \"mobile\": \"" + user.getMobile() + "\" }";
 
         boolean updated = ApiClient.updateUser(user.getId(), json);
 
-        if (updated) System.out.println("✅ Profile Updated");
-        else System.out.println("❌ Update Failed");
+        if (updated)
+            System.out.println("✅ Profile Updated");
+        else
+            System.out.println("❌ Update Failed");
     }
 
 }

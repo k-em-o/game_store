@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import com.game_store.App;
 import com.game_store.models.WishlistItem;
-import com.game_store.services.LoggedInUser;
 import com.game_store.services.WishlistService;
 
 import javafx.event.ActionEvent;
@@ -42,7 +41,7 @@ public class WishlistController {
                 App.setRoot("profile");
         }
         public void goOrders(ActionEvent event) throws IOException {
-                App.setRoot("orders");
+                App.setRoot("myOrder");
         }
 
 
@@ -50,10 +49,6 @@ public class WishlistController {
                 App.setRoot("payments");
         }
 
-        public void logout(ActionEvent event) throws IOException {
-                LoggedInUser.logout();
-                App.setRoot("home");
-        }
 
         private void loadWishlist() {
                 wishlistContainer.getChildren().clear();

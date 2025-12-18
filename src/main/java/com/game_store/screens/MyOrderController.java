@@ -8,8 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
 
-public class PaymentsController {
-    @FXML
+public class MyOrderController {
+       @FXML
     private StackPane contentArea;
 
     @FXML
@@ -23,10 +23,9 @@ public class PaymentsController {
     }
 
     // ===== Navigation =====
-    public void goOrders(ActionEvent event) throws IOException {
-        App.setRoot("myOrder");
+    public void goPayments(ActionEvent event) throws IOException {
+        App.setRoot("payments");
     }
-
     public void goWishlist(ActionEvent event) throws IOException {
         App.setRoot("wishlist-view");
     }

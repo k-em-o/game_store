@@ -368,7 +368,7 @@
 }
 
 .menu-title {
-  -fx-text-fill: #cfd2ff;
+  -fx-text-fill: #00d0ff;
   -fx-font-size: 24;
   -fx-font-weight: bold;
 }
@@ -414,8 +414,6 @@
 
 .field-pro-label {
   -fx-text-fill: white;
-  -fx-background-color: #535c91;
-  -fx-background-radius: 10;
   -fx-font-size: 24;
 }
 
@@ -442,6 +440,8 @@
   -fx-pref-width: 30%;
   -fx-min-width: 460;
   -fx-max-width: 560;
+  -fx-min-height: 450;
+  -fx-max-height: 450;
 }
 
 .profile-card {
