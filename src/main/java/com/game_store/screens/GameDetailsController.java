@@ -5,48 +5,37 @@ import java.util.ResourceBundle;
 
 import com.game_store.models.Game;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 
 public class GameDetailsController implements Initializable {
 
     // ================= UI =================
     @FXML
     private Label gameTitle;
-
     @FXML
     private Label gamePrice;
-
     @FXML
     private ImageView gameImage;
-
     @FXML
     private TextArea descriptionArea;
-
     @FXML
     private TextArea reviewArea;
 
     @FXML
     private Button buyButton;
-
     @FXML
     private Button addToCartButton;
-
     @FXML
     private Button addToWishlistButton;
 
-    @FXML
-    private Button backButton;
-
+    // مهم للـ Navbar
     @FXML
     private StackPane contentArea;
 
@@ -56,15 +45,11 @@ public class GameDetailsController implements Initializable {
     // ================= INIT =================
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Navbar
-        NavbarController navbar = NavbarController.getInstance();
-        if (navbar != null) {
-            navbar.setContentArea(contentArea);
-        }
 
-        // Back button
-        if (backButton != null) {
-            backButton.setOnAction(this::goBack);
+        // ربط الـ Navbar زي ما كانت
+        NavbarController navbar = NavbarController.getInstance();
+        if (navbar != null && contentArea != null) {
+            navbar.setContentArea(contentArea);
         }
     }
 
@@ -76,7 +61,8 @@ public class GameDetailsController implements Initializable {
 
     // ================= LOAD DATA =================
     private void loadGameDetails() {
-        if (game == null) return;
+        if (game == null)
+            return;
 
         // Title
         gameTitle.setText(game.getTitle() != null ? game.getTitle() : "");
@@ -84,6 +70,7 @@ public class GameDetailsController implements Initializable {
         // Price
         double price = game.getPrice();
         int discount = game.getDiscount();
+
         if (price == 0) {
             gamePrice.setText("FREE");
         } else {
@@ -92,7 +79,13 @@ public class GameDetailsController implements Initializable {
         }
 
         // Description
-        descriptionArea.setText(game.getDescription() != null ? game.getDescription() : "");
+        descriptionArea.setText(
+                game.getDescription() != null ? game.getDescription() : "");
+
+        // Review (لو مش موجود في الـ Model)
+        if (reviewArea != null) {
+            reviewArea.setText("");
+        }
 
         // Image
         try {
@@ -111,9 +104,8 @@ public class GameDetailsController implements Initializable {
         Button btn = (Button) event.getSource();
         btn.setStyle(
                 "-fx-opacity: 0.85;" +
-                "-fx-font-size: 14px;" +
-                "-fx-background-radius: 10;"
-        );
+                        "-fx-font-size: 14px;" +
+                        "-fx-background-radius: 12;");
     }
 
     @FXML
@@ -127,22 +119,6 @@ public class GameDetailsController implements Initializable {
             btn.setStyle("-fx-background-color: #007bff; -fx-text-fill: white;");
         } else if ("addToWishlistButton".equals(id)) {
             btn.setStyle("-fx-background-color: #ffc107; -fx-text-fill: black;");
-        }
-    }
-
-    // ================= BACK =================
-    @FXML
-    private void goBack(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/com/game_store/screens/browse.fxml")
-            );
-
-            Node sourceNode = (Node) event.getSource();
-            sourceNode.getScene().setRoot(loader.load());
-
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }
