@@ -2,19 +2,17 @@ package com.game_store.components;
 
 import java.io.IOException;
 
+import com.game_store.App;
 import com.game_store.models.Game;
 import com.game_store.screens.GameDetailsController;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 public class GameCardController {
 
@@ -30,17 +28,13 @@ public class GameCardController {
     @FXML
     private Label gamePrice;
 
-    // ✅ Game كامل
     private Game game;
 
-    // ================== Set Data ==================
     public void setData(Game game) {
         this.game = game;
 
-        // اسم اللعبة
         gameName.setText(game.getTitle());
 
-        // السعر
         if (game.getPrice() == 0) {
             gamePrice.setText("FREE");
         } else {
@@ -51,35 +45,30 @@ public class GameCardController {
             gamePrice.setText("$" + String.format("%.2f", finalPrice));
         }
 
-        // الصورة
         try {
-            Image image = new Image(game.getCoverImage(), true);
-            gameImage.setImage(image);
+            gameImage.setImage(new Image(game.getCoverImage(), true));
         } catch (Exception e) {
-            System.out.println("⚠️ Image load failed: " + game.getCoverImage());
+            System.out.println("⚠️ Image load failed");
         }
 
-        // فتح صفحة التفاصيل عند الضغط
-        rootCard.setOnMouseClicked(e -> openGameDetails(e));
+        rootCard.setOnMouseClicked(this::openGameDetails);
     }
 
-    // ================== Open Game Details ==================
     private void openGameDetails(javafx.scene.input.MouseEvent e) {
-        try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/com/game_store/screens/GameDetails.fxml"));
-            Parent root = loader.load();
+    try {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/com/game_store/screens/gameDetails.fxml"));
 
-            // تمرير اللعبة كاملة
-            GameDetailsController controller = loader.getController();
-            controller.setGame(game);
+        Parent root = loader.load();
 
-            // نفس Stage
-            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
+        GameDetailsController controller = loader.getController();
+        controller.setGame(game);
 
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        App.setRoot("gameDetails"); // ✅ نفس Scene بنفس CSS
+
+    } catch (IOException ex) {
+        ex.printStackTrace();
     }
+}
+
 }
