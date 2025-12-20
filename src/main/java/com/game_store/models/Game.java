@@ -56,40 +56,140 @@ public class Game {
     private String updatedAt;
 
     // ================= Getters =================
-    public String getId() { return id; }
-    public String getTitle() { return title; }
-    public String getDescription() { return description; }
-    public String getDeveloperId() { return developerId; }
-    public double getPrice() { return Double.parseDouble(price); }
-    public int getDiscount() { return discountPercentage; }
-    public double getRating() { return Double.parseDouble(rating); }
-    public String getCoverImage() { return coverImageUrl; }
-    public String getReleaseDate() { return releaseDate; }
-    public String getCategoryId() { return categoryId; }
-    public boolean isPublished() { return isPublished; }
-    public int getDownloadsCount() { return downloadsCount; }
-    public String getPlatform() { return platform; }
-    public String[] getTags() { return tags; }
-    public String getStoreUrl() { return storeUrl; }
-    public String getCreatedAt() { return createdAt; }
-    public String getUpdatedAt() { return updatedAt; }
+    public String getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getDeveloperId() {
+        return developerId;
+    }
+
+    public double getPrice() {
+        return Double.parseDouble(price);
+    }
+
+    public int getDiscount() {
+        return discountPercentage;
+    }
+
+    public double getRating() {
+        return Double.parseDouble(rating);
+    }
+
+    public String getCoverImage() {
+        return coverImageUrl;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public boolean isPublished() {
+        return isPublished;
+    }
+
+    public int getDownloadsCount() {
+        return downloadsCount;
+    }
+
+    public String getPlatform() {
+        return platform;
+    }
+
+    public String[] getTags() {
+        return tags;
+    }
+
+    public String getStoreUrl() {
+        return storeUrl;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
 
     // ================= Setters =================
-    public void setId(String id) { this.id = id; }
-    public void setTitle(String title) { this.title = title; }
-    public void setDescription(String description) { this.description = description; }
-    public void setDeveloperId(String developerId) { this.developerId = developerId; }
-    public void setPrice(String price) { this.price = price; }
-    public void setDiscount(int discountPercentage) { this.discountPercentage = discountPercentage; }
-    public void setRating(String rating) { this.rating = rating; }
-    public void setCoverImage(String coverImageUrl) { this.coverImageUrl = coverImageUrl; }
-    public void setReleaseDate(String releaseDate) { this.releaseDate = releaseDate; }
-    public void setCategoryId(String categoryId) { this.categoryId = categoryId; }
-    public void setPublished(boolean published) { isPublished = published; }
-    public void setDownloadsCount(int downloadsCount) { this.downloadsCount = downloadsCount; }
-    public void setPlatform(String platform) { this.platform = platform; }
-    public void setTags(String[] tags) { this.tags = tags; }
-    public void setStoreUrl(String storeUrl) { this.storeUrl = storeUrl; }
-    public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
-    public void setUpdatedAt(String updatedAt) { this.updatedAt = updatedAt; }
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setDeveloperId(String developerId) {
+        this.developerId = developerId;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public void setDiscount(int discountPercentage) {
+        this.discountPercentage = discountPercentage;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public void setCoverImage(String coverImageUrl) {
+        this.coverImageUrl = coverImageUrl;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public void setPublished(boolean published) {
+        isPublished = published;
+    }
+
+    public void setDownloadsCount(int downloadsCount) {
+        this.downloadsCount = downloadsCount;
+    }
+
+    public void setPlatform(String platform) {
+        this.platform = platform;
+    }
+
+    public void setTags(String[] tags) {
+        this.tags = tags;
+    }
+
+    public void setStoreUrl(String storeUrl) {
+        this.storeUrl = storeUrl;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }

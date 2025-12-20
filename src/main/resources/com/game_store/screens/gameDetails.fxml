@@ -1,16 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.game_store.screens.GameDetailsController"
             prefWidth="800"
-            prefHeight="600">
+            prefHeight="600"
+            style="-fx-background-color: #0D1B2A;">
 
+    <!-- Back Button -->
+    <Button fx:id="backButton"
+            text="← Back"
+            layoutX="20"
+            layoutY="20"
+            style="-fx-background-color: #555; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+    <!-- Title -->
     <Label fx:id="gameTitle"
            layoutX="50"
-           layoutY="50"
-           style="-fx-font-size:24px;"/>
-</AnchorPane>
+           layoutY="60"
+           style="-fx-font-size: 26px; -fx-text-fill: white;"/>
 
+    <!-- Price -->
+    <Label fx:id="gamePrice"
+           layoutX="50"
+           layoutY="100"
+           style="-fx-font-size: 20px; -fx-text-fill: #FFD700;"/>
+
+    <!-- Main Content: Image + Buttons -->
+    <HBox layoutX="50"
+          layoutY="140"
+          spacing="20"
+          alignment="TOP_LEFT">
+
+        <!-- Game Image -->
+        <ImageView fx:id="gameImage"
+                   fitWidth="400"
+                   fitHeight="250"
+                   preserveRatio="true"
+                   style="-fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);"/>
+
+        <!-- Buttons Vertical -->
+        <VBox spacing="20" alignment="TOP_CENTER">
+
+            <Button fx:id="buyButton" text="Buy Now" prefWidth="120" prefHeight="40"
+                    onMouseEntered="#hoverButton" onMouseExited="#exitButton"
+                    style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+            <Button fx:id="addToCartButton" text="Add to Cart" prefWidth="120" prefHeight="40"
+                    onMouseEntered="#hoverButton" onMouseExited="#exitButton"
+                    style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+            <Button fx:id="addToWishlistButton" text="Add to Wishlist" prefWidth="140" prefHeight="40"
+                    onMouseEntered="#hoverButton" onMouseExited="#exitButton"
+                    style="-fx-background-color: #ffc107; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        </VBox>
+    </HBox>
+
+    <!-- Description & Review under main content -->
+    <HBox layoutX="50"
+          layoutY="410"
+          spacing="20"
+          alignment="CENTER_LEFT">
+
+        <TextArea fx:id="descriptionArea"
+                  prefWidth="370"
+                  prefHeight="150"
+                  wrapText="true"
+                  editable="false"
+                  style="-fx-control-inner-background: #1B263B; -fx-text-fill: white; -fx-font-size: 14px;"/>
+
+        <TextArea fx:id="reviewArea"
+                  prefWidth="370"
+                  prefHeight="150"
+                  wrapText="true"
+                  editable="false"
+                  style="-fx-control-inner-background: #1B263B; -fx-text-fill: white; -fx-font-size: 14px;"/>
+    </HBox>
+
+</AnchorPane>

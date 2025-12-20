@@ -28,13 +28,19 @@ public class BrowseController implements Initializable {
 
     /* ================= FXML ================= */
 
-    @FXML private StackPane contentArea;
-    @FXML private FlowPane gameContainer;
-    @FXML private HBox paginationBox;
+    @FXML
+    private StackPane contentArea;
+    @FXML
+    private FlowPane gameContainer;
+    @FXML
+    private HBox paginationBox;
 
-    @FXML private ComboBox<String> categoryFilter;
-    @FXML private ComboBox<String> priceFilter;
-    @FXML private TextField searchField;
+    @FXML
+    private ComboBox<String> categoryFilter;
+    @FXML
+    private ComboBox<String> priceFilter;
+    @FXML
+    private TextField searchField;
 
     /* ================= Data ================= */
 
@@ -48,14 +54,13 @@ public class BrowseController implements Initializable {
 
     /* ================= Init ================= */
 
-    
     @FXML
     public void initialize() {
 
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
 
         NavbarController navbar = NavbarController.getInstance();
         if (navbar != null) {
@@ -84,20 +89,14 @@ public class BrowseController implements Initializable {
 
     private void applyFilters() {
         filteredGames = allGames.stream()
-            .filter(g ->
-                categoryFilter.getValue().equals("All")
-                || g.getCategoryId().equalsIgnoreCase(categoryFilter.getValue())
-            )
-            .filter(g ->
-                priceFilter.getValue().equals("All")
-                || (priceFilter.getValue().equals("Free") && g.getPrice() == 0)
-                || (priceFilter.getValue().equals("Paid") && g.getPrice() > 0)
-            )
-            .filter(g ->
-                g.getTitle().toLowerCase()
-                 .contains(searchField.getText().toLowerCase())
-            )
-            .collect(Collectors.toList());
+                .filter(g -> categoryFilter.getValue().equals("All")
+                        || g.getCategoryId().equalsIgnoreCase(categoryFilter.getValue()))
+                .filter(g -> priceFilter.getValue().equals("All")
+                        || (priceFilter.getValue().equals("Free") && g.getPrice() == 0)
+                        || (priceFilter.getValue().equals("Paid") && g.getPrice() > 0))
+                .filter(g -> g.getTitle().toLowerCase()
+                        .contains(searchField.getText().toLowerCase()))
+                .collect(Collectors.toList());
 
         currentPage = 0;
         renderPage();
@@ -109,7 +108,8 @@ public class BrowseController implements Initializable {
     private void loadGamesFromApi() {
         try {
             String json = ApiClient.getGames();
-            if (json == null || json.equals("[]")) return;
+            if (json == null || json.equals("[]"))
+                return;
 
             Game[] games = mapper.readValue(json, Game[].class);
             allGames = Arrays.asList(games);
@@ -132,20 +132,13 @@ public class BrowseController implements Initializable {
 
             try {
                 FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/com/game_store/components/GameCard.fxml")
-                );
+                        getClass().getResource("/com/game_store/components/GameCard.fxml"));
 
                 AnchorPane card = loader.load();
-                card.setPrefSize(325, 517);   // ✅ أبعاد الكارد
+                card.setPrefSize(325, 517); // ✅ أبعاد الكارد
 
                 GameCardController controller = loader.getController();
-                controller.setData(
-                    game.getId(),
-                    game.getTitle(),
-                    game.getPrice(),        // 0 هتتعالج Free في الكارد
-                    game.getDiscount(),
-                    game.getCoverImage()
-                );
+                controller.setData(game); // 👈 هنا بدل القديم اللي كان بيمرر قيم منفصلة
 
                 gameContainer.getChildren().add(card);
 
@@ -167,8 +160,7 @@ public class BrowseController implements Initializable {
             Button btn = new Button(String.valueOf(i + 1));
 
             btn.getStyleClass().add(
-                i == currentPage ? "pagination-btn-active" : "pagination-btn"
-            );
+                    i == currentPage ? "pagination-btn-active" : "pagination-btn");
 
             btn.setOnAction(e -> {
                 currentPage = index;
