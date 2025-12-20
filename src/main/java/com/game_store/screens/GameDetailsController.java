@@ -7,11 +7,8 @@ import com.game_store.models.Game;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -50,18 +47,22 @@ public class GameDetailsController implements Initializable {
     @FXML
     private Button backButton;
 
-        @FXML
+    @FXML
     private StackPane contentArea;
+
     // ================= DATA =================
     private Game game;
 
     // ================= INIT =================
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Navbar
         NavbarController navbar = NavbarController.getInstance();
         if (navbar != null) {
             navbar.setContentArea(contentArea);
         }
+
+        // Back button
         if (backButton != null) {
             backButton.setOnAction(this::goBack);
         }
@@ -78,26 +79,20 @@ public class GameDetailsController implements Initializable {
         if (game == null) return;
 
         // Title
-        gameTitle.setText(
-                game.getTitle() != null ? game.getTitle() : ""
-        );
+        gameTitle.setText(game.getTitle() != null ? game.getTitle() : "");
 
         // Price
         double price = game.getPrice();
         int discount = game.getDiscount();
-
         if (price == 0) {
             gamePrice.setText("FREE");
         } else {
-            double finalPrice =
-                    discount > 0 ? price - (price * discount / 100.0) : price;
+            double finalPrice = discount > 0 ? price - (price * discount / 100.0) : price;
             gamePrice.setText("$" + String.format("%.2f", finalPrice));
         }
 
         // Description
-        descriptionArea.setText(
-                game.getDescription() != null ? game.getDescription() : ""
-        );
+        descriptionArea.setText(game.getDescription() != null ? game.getDescription() : "");
 
         // Image
         try {
@@ -143,14 +138,8 @@ public class GameDetailsController implements Initializable {
                     getClass().getResource("/com/game_store/screens/browse.fxml")
             );
 
-            Parent root = loader.load();
-
-            Stage stage =
-                    (Stage) ((Node) event.getSource())
-                            .getScene()
-                            .getWindow();
-
-            stage.setScene(new Scene(root));
+            Node sourceNode = (Node) event.getSource();
+            sourceNode.getScene().setRoot(loader.load());
 
         } catch (Exception e) {
             e.printStackTrace();
