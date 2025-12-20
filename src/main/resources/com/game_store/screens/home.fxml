@@ -17,9 +17,7 @@
     <VBox alignment="CENTER">
       <StackPane fx:id="contentArea"/>
       <Label text="Home" styleClass="test-label"/>
-      <Button text="Task"
-                              onAction="#goTask"
-                              style="-fx-font-size:18; -fx-background-color:#1f6feb; -fx-text-fill:white;"/>
+
     </VBox>
   </center>
 </BorderPane>
