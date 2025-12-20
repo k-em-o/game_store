@@ -6,7 +6,9 @@
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.game_store.screens.BrowseController"
-            styleClass="root" >
+            style="-fx-background-color: #0D1B2A;"
+            styleClass="root">
+
   <!-- ================= Filters Bar ================= -->
   <top>
     <VBox>

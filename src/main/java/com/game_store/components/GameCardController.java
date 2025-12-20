@@ -2,6 +2,7 @@ package com.game_store.components;
 
 import java.io.IOException;
 
+import com.game_store.models.Game;
 import com.game_store.screens.GameDetailsController;
 
 import javafx.fxml.FXML;
@@ -29,50 +30,56 @@ public class GameCardController {
     @FXML
     private Label gamePrice;
 
-    private String gameId;
+    // ✅ Game كامل
+    private Game game;
 
-    public void setData(String id, String title, double price, int discount, String imageUrl) {
-        this.gameId = id;
+    // ================== Set Data ==================
+    public void setData(Game game) {
+        this.game = game;
 
         // اسم اللعبة
-        gameName.setText(title);
+        gameName.setText(game.getTitle());
 
         // السعر
-        if (price == 0) {
+        if (game.getPrice() == 0) {
             gamePrice.setText("FREE");
         } else {
-            double finalPrice = discount > 0
-                    ? price - (price * discount / 100.0)
-                    : price;
+            double finalPrice = game.getDiscount() > 0
+                    ? game.getPrice() - (game.getPrice() * game.getDiscount() / 100.0)
+                    : game.getPrice();
 
             gamePrice.setText("$" + String.format("%.2f", finalPrice));
         }
 
         // الصورة
         try {
-            Image image = new Image(imageUrl, true);
+            Image image = new Image(game.getCoverImage(), true);
             gameImage.setImage(image);
         } catch (Exception e) {
-            System.out.println("⚠️ Image load failed: " + imageUrl);
+            System.out.println("⚠️ Image load failed: " + game.getCoverImage());
         }
 
-        // فتح التفاصيل
-        rootCard.setOnMouseClicked(e -> {
-            try {
-                FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource("/com/game_store/screens/gameDetails.fxml")
-                );
-                Parent root = loader.load();
+        // فتح صفحة التفاصيل عند الضغط
+        rootCard.setOnMouseClicked(e -> openGameDetails(e));
+    }
 
-                GameDetailsController controller = loader.getController();
-                controller.setGameId(gameId);
+    // ================== Open Game Details ==================
+    private void openGameDetails(javafx.scene.input.MouseEvent e) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/game_store/screens/GameDetails.fxml"));
+            Parent root = loader.load();
 
-                Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
+            // تمرير اللعبة كاملة
+            GameDetailsController controller = loader.getController();
+            controller.setGame(game);
 
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        });
+            // نفس Stage
+            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 }
