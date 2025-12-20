@@ -1,7 +1,7 @@
-// SignUpController.java
 package com.game_store.screens;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -49,7 +49,9 @@ public class SignUpController {
         imageContainer.widthProperty().addListener(this::updateBackgroundSize);
         imageContainer.heightProperty().addListener(this::updateBackgroundSize);
 
-        loginButton.setOnAction(e -> { try { handleSignUp(); } catch(IOException ex){ ex.printStackTrace(); } });
+        loginButton.setOnAction(e -> { 
+            try { handleSignUp(); } catch(IOException ex){ ex.printStackTrace(); } 
+        });
 
         passwordTextField.managedProperty().bind(showPasswordCheckBox.selectedProperty());
         passwordTextField.visibleProperty().bind(showPasswordCheckBox.selectedProperty());
@@ -67,9 +69,9 @@ public class SignUpController {
     }
 
     private void handleSignUp() throws IOException {
-        String name = fullName.getText();
-        String user = username.getText();
-        String email = emailField.getText();
+        String name = fullName.getText().trim();
+        String user = username.getText().trim();
+        String email = emailField.getText().trim();
         String password = passwordField.getText();
 
         if(name.isEmpty() || user.isEmpty() || email.isEmpty() || password.isEmpty()){
@@ -84,7 +86,20 @@ public class SignUpController {
 
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
 
-        User newUser = new User(null, email, user, name, "", "Unknown", hashedPassword, "user");
+        // ✅ توليد UUID للمستخدم الجديد
+        String userId = UUID.randomUUID().toString();
+
+        User newUser = new User(
+            userId,      // ID غير فارغ
+            email, 
+            user, 
+            name, 
+            "",          // mobile
+            "Unknown",   // country
+            hashedPassword, 
+            "user"       // role
+        );
+
         ObjectMapper mapper = new ObjectMapper();
         String body = mapper.writeValueAsString(newUser);
 
