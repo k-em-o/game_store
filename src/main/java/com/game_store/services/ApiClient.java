@@ -5,9 +5,13 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
+import java.util.List;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.game_store.models.Game;
 import com.game_store.models.User;
+import com.game_store.models.WishlistItem;
 
 public class ApiClient {
     private static final String SUPABASE_URL = "https://uxdfzosnrodoqvbwjupt.supabase.co";
@@ -96,8 +100,21 @@ public class ApiClient {
         return get("/rest/v1/games?select=*&is_published=eq.true");
     }
 
-    public static String getGameById(String gameId) {
-        return get("/rest/v1/games?select=*&id=eq." + gameId);
+    public static Game getGameById(String gameId) {
+        try {
+            String json = get("/rest/v1/games?select=*&id=eq." + gameId);
+            if (json != null && !json.isEmpty()) {
+                // Supabase بيرجع مصفوفة حتى لو عنصر واحد
+                List<Game> games = mapper.readValue(json, new TypeReference<List<Game>>() {
+                });
+                if (!games.isEmpty()) {
+                    return games.get(0); // أول لعبة
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static String getGamesByCategory(String categoryId) {
@@ -178,20 +195,87 @@ public class ApiClient {
 
     // ==================== ❤️ WISHLIST ====================
 
-    public static String getWishlistByUser(String userId) {
-        return get("/rest/v1/wishlist?select=*&user_id=eq." + userId);
+    // ===== GET WISHLIST =====
+    public static List<WishlistItem> getWishlist(String userId) {
+        try {
+
+            String url = SUPABASE_URL
+                    + "/rest/v1/wishlist"
+                    + "?user_id=eq." + userId
+                    + "&select=*";
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .header("apikey", API_KEY)
+                    .header("Authorization", "Bearer " + API_KEY)
+                    .header("Accept", "application/json")
+                    .GET()
+                    .build();
+
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            System.out.println("RAW RESPONSE: " + response.body());
+
+            if (response.statusCode() != 200) {
+                System.out.println("❌ Wishlist GET failed: " + response.body());
+                return List.of();
+            }
+
+            return mapper.readValue(
+                    response.body(),
+                    new TypeReference<List<WishlistItem>>() {
+                    });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return List.of();
+        }
     }
 
-    public static String getWishlistWithGames(String userId) {
-        return get("/rest/v1/wishlist?select=*,games(*)&user_id=eq." + userId);
+    // ===== ADD TO WISHLIST =====
+    public static boolean addToWishlist(String userId, String gameId) {
+        try {
+            String json = "{ \"user_id\": \"" + userId + "\"," +
+                    "  \"game_id\": \"" + gameId + "\" }";
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(SUPABASE_URL + "/rest/v1/wishlist"))
+                    .header("apikey", API_KEY)
+                    .header("Authorization", "Bearer " + API_KEY)
+                    .header("Content-Type", "application/json")
+                    .header("Prefer", "return=minimal")
+                    .POST(HttpRequest.BodyPublishers.ofString(json))
+                    .build();
+
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+            return response.statusCode() == 201;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
-    public static boolean addToWishlist(String jsonBody) {
-        return post("/rest/v1/wishlist", jsonBody);
-    }
+    // ===== REMOVE FROM WISHLIST =====
+    public static boolean removeFromWishlist(String wishlistId) {
+        try {
+            String url = SUPABASE_URL + "/rest/v1/wishlist?id=eq." + wishlistId;
 
-    public static boolean removeFromWishlist(String userId, String gameId) {
-        return delete("/rest/v1/wishlist?user_id=eq." + userId + "&game_id=eq." + gameId);
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .header("apikey", API_KEY)
+                    .header("Authorization", "Bearer " + API_KEY)
+                    .DELETE()
+                    .build();
+
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+            return response.statusCode() == 204;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     // ==================== 🛒 ORDERS ====================

@@ -1,33 +1,43 @@
+// WishlistService.java
 package com.game_store.services;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.game_store.models.Game;
 import com.game_store.models.WishlistItem;
 
 public class WishlistService {
 
-    private List<WishlistItem> wishlist = new ArrayList<>();
+    // جلب جميع الألعاب في الويشليست
+    public static List<Game> getWishlistGames(String userId) {
+        List<WishlistItem> wishlist = ApiClient.getWishlist(userId);
+        List<Game> games = new ArrayList<>();
 
-    public WishlistService() {
+        for (WishlistItem item : wishlist) {
+            Game game = ApiClient.getGameById(item.getGame_id()); // جلب بيانات اللعبة من جدول Games
+            if (game != null) {
+                games.add(game);
+            }
+        }
 
-        wishlist.add(new WishlistItem(
-                "God of War",
-                49.99,
-                "/com/game_store/assets/gow.jpg"
-        ));
-
+        return games;
     }
 
-    public List<WishlistItem> getWishlist() {
-        return wishlist;
+    // ===== ADD ITEM =====
+    public static boolean addItem(String userId, String gameId) {
+        boolean success = ApiClient.addToWishlist(userId, gameId);
+        return success;
     }
 
-    public void removeItem(WishlistItem item) {
-        wishlist.remove(item);
+    // ===== REMOVE ITEM =====
+    public static boolean removeItem(String userId, String wishlistId) {
+        boolean success = ApiClient.removeFromWishlist(wishlistId);
+        return success;
     }
 
-    public void addToCart(WishlistItem item) {
-        System.out.println(item.getTitle() + " added to cart!");
+    // ===== ADD TO CART =====
+    public static void addToCart(Game game) {
+        System.out.println("Added to cart: " + game.getTitle());
     }
 }
